@@ -1,0 +1,76 @@
+import java.io.*;
+import java.util.Random;
+public class SpecialOffer {
+	public static void main(String args[]) throws IOException {
+		InputStreamReader ir = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(ir);
+		Random myRandom = new Random();
+		
+		System.out.println("Which game would you like to play?? ");
+		System.out.println("Enter 1 for guess the number ");
+		System.out.println("Enter 2 for High or Low ");
+		int ch = Integer.parseInt(br.readLine());
+		
+		if(ch == 1){
+		System.out.println("Enter a number of your choice from 0 to 10: ");
+		int N = Integer.parseInt(br.readLine()); 
+		int randomNumber = myRandom.nextInt(10) + 1;
+			if (randomNumber == N) 
+				System.out.println("CONGRATULATION!!! YOU ARE THE LUCKY WINNER!!!");
+			else
+				System.out.println("Better luck next time!!!");
+		}
+		
+
+		else if(ch == 2){
+			int n = 0;
+			int b = 0; int S;
+			int random = myRandom.nextInt(10) + 1;
+			System.out.println(random);
+			do{
+				int randomNumber = myRandom.nextInt(10) + 1;
+				System.out.println("Will the next number be higher, lower or equal assuming that it will be between 0 to 10???");
+				System.out.println("If the next number is higher, enter 1 ");
+				System.out.println("If the next number is lower, enter 2 ");
+				System.out.println("If the next number is equal, enter 3 ");
+				int str = Integer.parseInt(br.readLine()); 
+				if(randomNumber > random){
+					S = 2;
+					if(str == S)
+						System.out.println("You are correct!!! On to the next round!!!");
+					else{
+						System.out.println("Sorry, better luck next time!!!");
+						System.out.println("The number was " + randomNumber);
+						n = 0;
+						}
+					}
+				else if(randomNumber < random){
+					S = 1;
+					if(str == S)
+					 	System.out.println("You are correct!!! On to the next round!!!");
+					else{
+						System.out.println("Sorry, better luck next time!!!");
+						System.out.println("The number was " + randomNumber);
+						n = 0;
+						}
+					}
+				else{
+					S = 3;
+					if(str == S)
+					 	System.out.println("You are correct!!! On to the next round!!!");
+					else{
+						System.out.println("Sorry, better luck next time!!!");
+						System.out.println("The number was " + randomNumber);
+						n = 0;
+						}
+					}
+				System.out.println("The number was " + randomNumber);
+				b = b + 1;
+			}while(n != 0);
+		}  
+		else
+			System.out.println("INVALID INPUT!!!");       
+	}             
+}            
+
+
